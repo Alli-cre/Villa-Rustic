@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-key="page_title">Villa Rustic</title>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    line-height: 1.6;
+  }
+
+  /* NAVBAR */
+  nav {
+    background: #2f4f4f;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  nav h2 { margin: 0; }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: bold;
+  }
+
+  .lang-switch button {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    margin-left: 5px;
+    padding: 5px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  /* HERO */
+  .hero {
+    background: url("slike/Herophoto.png") center/cover no-repeat;
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+  }
+
+  .hero h1 { font-size: 48px; }
+
+  /* CONTAINER */
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+  }
+
+  h2 { text-align: center; margin-top: 40px; }
+
+  /* FEATURES */
+  .features {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+
+  .feature {
+    flex: 1;
+    min-width: 250px;
+    background: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  /* GALLERY PREVIEW */
+  .gallery-preview {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .gallery-preview img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+  }
+
+  .see-all { text-align: center; margin-top: 20px; }
+
+  .see-all button {
+    padding: 12px 25px;
+    background: #2f4f4f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  /* ACTIVITIES */
+  .activities {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+  }
+
+  .activity {
+    flex: 1;
+    min-width: 250px;
+    background: #f0f0f0;
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .activity span {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  /* PRICING */
+  .pricing {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .price-card {
+    background: #f0f0f0;
+    padding: 25px;
+    border-radius: 10px;
+    max-width: 300px;
+    text-align: center;
+  }
+
+  .price {
+    font-size: 32px;
+    color: #2f4f4f;
+    margin: 15px 0;
+  }
+
+  /* CONTACT */
+  .contact { text-align: center; margin-top: 40px; }
+
+  .contact a {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 20px;
+    background: #2f4f4f;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+
+  iframe {
+    width: 100%;
+    height: 350px;
+    border: 0;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: #2f4f4f;
+    color: white;
+    margin-top: 40px;
+  }
+  
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background-color: #2f4f4f;
+    text-align: center;
+  }
+
+  .footer-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    transition: color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .footer-links a:hover {
+    color: #0077cc;
+  }
+
+  .footer-links i {
+    font-size: 1.2em;
+  }
+
+
+
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 30px; }
+    nav { flex-direction: column; align-items: flex-start; }
+  }
+
+  .activities {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.activity {
+  position: relative;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 16px;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+/* Dark overlay for readability */
+.activity::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.activity * {
+  position: relative;
+}
+
+.activity span {
+  font-size: 2rem;
+}
+
+.activity h3 {
+  margin: 10px 0 5px;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h2 data-key="site_title">Villa Rustic</h2>
+  <div>
+    <a href="#about" data-key="nav_about">About</a>
+    <a href="#gallery" data-key="nav_gallery">Gallery</a>
+    <a href="#activities" data-key="nav_activities">Activities</a>
+    <a href="#pricing" data-key="nav_pricing">Pricing</a>
+    <a href="#contact" data-key="nav_contact">Contact</a>
+    <span class="lang-switch">
+      <button onclick="setLanguage('en')">EN</button>
+      <button onclick="setLanguage('bs')">BS</button>
+      <button onclick="setLanguage('de')">DE</button>
+    </span>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1 data-key="hero_title">Welcome to Our Cottage</h1>
+  <p data-key="hero_subtitle">Nature, peace, and adventure</p>
+</section>
+
+<section id="about" class="container">
+  <h2 data-key="about_title">About the Cottage</h2>
+  <p data-key="about_text">Welcome to your oasis of peace – a beautiful holiday home located in the heart of the village, ideal for escaping the city crowds and everyday stress. This traditional, yet modernly equipped house offers the perfect blend of comfort and nature. The house is located in a picturesque and peaceful setting, surrounded by greenery, orchards and clean air. Enjoy your morning coffee with the chirping of birds, relax on the spacious terrace overlooking the pool, or spend your evenings with a barbecue and the starry sky. The house offers: Spacious living room Fully equipped kitchen 2 bedrooms modern bathroom swimming pool tavern with barbecue private parking It is ideal for a family vacation, a romantic weekend or a retreat to the silence of nature. Nearby are the Old Town of Ostrožac, Una National Park and other attractions.</p>
+
+  <div class="features">
+    <div class="feature" data-key="feature_nature">🌲 Nature</div>
+    <div class="feature" data-key="feature_fireplace">🔥 Grill</div>
+    <div class="feature" data-key="feature_sleeps">🛏 Sleeps 4–6</div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="container">
+  <h2 data-key="gallery_title">Gallery</h2>
+
+  <div class="gallery-preview">
+    <img src="slike/1.jpg" alt="Cottage view 1">
+    <img src="slike/8.jpg" alt="Cottage view 2">
+    <img src="slike/21.jpeg" alt="Cottage view 3">
+  </div>
+
+  <div class="see-all">
+    <a href="gallery.html">
+      <button data-key="see_all_photos">See all photos</button>
+    </a>
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section id="activities" class="container">
+  <h2 data-key="activities_title">Outdoor Activities in short reach</h2>
+
+  <div class="activities">
+
+    <div class="activity" style="background-image: url('slike/raft.jpeg');">
+      <span>🚣</span>
+      <h3 data-key="activity_rafting">Rafting</h3>
+      <p data-key="activity_rafting_desc">
+        Exciting river rafting experiences nearby.
+      </p>
+    </div>
+
+    <div class="activity" style="background-image: url('slike/starigrad.jpg');">
+      <span>🏞️</span>
+      <h3 data-key="activity_sightseeing">Sightseeing</h3>
+      <p data-key="activity_sightseeing_desc">
+        Beautiful viewpoints and historical places.
+      </p>
+    </div>
+
+    <div class="activity" style="background-image: url('slike/cazin.jpg');">
+      <span>🪂</span>
+      <h3 data-key="activity_paragliding">Paragliding</h3>
+      <p data-key="activity_paragliding_desc">
+        Paragliding flights with stunning panoramic views.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- PRICING -->
+<section id="pricing" class="container">
+  <h2 data-key="pricing_title">Pricing</h2>
+
+  <div class="pricing">
+    <div class="price-card">
+      <h3 >01.06. - 30.06.</h3>
+      <div class="price">€200 / night</div>
+    </div>
+
+    <div class="price-card">
+      <h3 >01.07. - 31.08.</h3>
+      <div class="price">€300 / night</div>
+    </div>
+
+    <div class="price-card">
+      <h3 >01.09. - 31.05.</h3>
+      <div class="price">€150 / night</div>
+      <h4 data-key="praznik">(Iznimka praznici)</h4>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="container contact">
+  <h2 data-key="contact_title">Contact & Location</h2>
+  <h3>Viber</h3>
+  <p>+387 61 871 705</p>
+  <h3>Viber/WhatsApp</h3>
+  <p>+387 61 313 239</p>
+
+ 
+
+ <iframe
+  src="https://www.google.com/maps?q=44.923030679192266,15.963549683419451&output=embed"
+  width="100%"
+  height="400"
+  style="border:0;"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+
+</section>
+
+<footer>
+  <span data-key="footer_text">© 2026 Cozy Cottage</span>
+  
+  <!-- Social / Booking Links -->
+  <div class="footer-links">
+    <a href="https://www.booking.com/hotel/ba/villa-rustic.hr.html?label=gx-row-booking-booking-cos2&aid=1799937&ucfs=1&arphpl=1&checkin=2026-01-09&checkout=2026-01-11&dest_id=-87945&dest_type=city&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=1&hapos=1&sr_order=popularity&srpvid=2eef4c40e9750222&srepoch=1767437448&all_sr_blocks=1436188601_417124824_6_42_0&highlighted_blocks=1436188601_417124824_6_42_0&matching_block_id=1436188601_417124824_6_42_0&sr_pri_blocks=1436188601_417124824_6_42_0__38760&from=searchresults&lang=hr&soz=1&lang_changed=1#availability" target="_blank" rel="noopener">
+      <i class="fa-solid fa-bed"></i> Booking
+    </a>
+    <a href="https://www.instagram.com/villa_rustic1/" target="_blank" rel="noopener">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+    <a href="https://www.tiktok.com/@villa.rustic" target="_blank" rel="noopener">
+      <i class="fab fa-tiktok"></i> TikTok
+    </a>
+    <a href="https://www.facebook.com/groups/vikendiceBiH/posts/villa-rustic-okolica-cazina-sve-info-na-061-871-705/1522734202039350/" target="_blank" rel="noopener">
+      <i class="fab fa-facebook-f"></i> Facebook
+    </a>
+  </div>
+</footer>
+
+
+<script>
+const translations = {
+  en: {
+    page_title: "Villa Rustic",
+    site_title: "Villa Rustic",
+    nav_about: "About",
+    nav_gallery: "Gallery",
+    nav_activities: "Activities",
+    nav_pricing: "Pricing",
+    nav_contact: "Contact",
+    hero_title: "Welcome to Our Cottage",
+    hero_subtitle: "Nature, peace, and adventure",
+    about_title: "About the Cottage",
+    about_text: "Welcome to your oasis of peace – a beautiful holiday home located in the heart of the village, ideal for escaping the city crowds and everyday stress. This traditional, yet modernly equipped house offers the perfect blend of comfort and nature. The house is located in a picturesque and peaceful setting, surrounded by greenery, orchards and clean air. Enjoy your morning coffee with the chirping of birds, relax on the spacious terrace overlooking the pool, or spend your evenings with a barbecue and the starry sky. The house offers: Spacious living room Fully equipped kitchen 2 bedrooms modern bathroom swimming pool tavern with barbecue private parking It is ideal for a family vacation, a romantic weekend or a retreat to the silence of nature. Nearby are the Old Town of Ostrožac, Una National Park and other attractions.",
+    feature_nature: "🌲 Nature",
+    feature_fireplace: "🔥 Grill",
+    feature_sleeps: "🛏 Sleeps 4–6",
+    gallery_title: "Gallery",
+    see_all_photos: "See all photos",
+    activities_title: "Outdoor Activities in our reach",
+    activity_rafting: "Rafting",
+    activity_rafting_desc: "Exciting river rafting experiences nearby.",
+    activity_sightseeing: "Sightseeing",
+    activity_sightseeing_desc: "Beautiful viewpoints and historical places.",
+    activity_paragliding: "Paragliding",
+    activity_paragliding_desc: "Paragliding flights with stunning panoramic views.",
+    pricing_title: "Pricing",
+    praznik:"(Except holidays)",
+    contact_title: "Contact & Location",
+    footer_text: "© 2026 Villa Rustic"
+  },
+  bs: {
+    page_title: "Villa Rustic",
+    site_title: "Villa Rustic",
+    nav_about: "O nama",
+    nav_gallery: "Galerija",
+    nav_activities: "Aktivnosti",
+    nav_pricing: "Cjenovnik",
+    nav_contact: "Kontakt",
+    hero_title: "Dobrodošli u našu vikendicu",
+    hero_subtitle: "Priroda, mir i avantura",
+    about_title: "O vikendici",
+    about_text: "Dobrodošli u vašu oazu mira – prelijepa kuća za odmor smještena u srcu sela, idealna za bijeg od gradske gužve i svakodnevnog stresa. Ova tradicionalna, ali moderno opremljena kuća pruža savršen spoj udobnosti i prirode. Kuća se nalazi u slikovitom i mirnom okruženju, okružena zelenilom, voćnjakom i čistim zrakom. Uživajte u jutarnjoj kafi uz cvrkut ptica, opustite se na prostranoj terasi s pogledom na bazen ili provedite večeri uz roštilj i zvjezdano nebo. Kuća nudi: prostran dnevni boravak, potpuno opremljenu kuhinju, dvije spavaće sobe, moderno kupatilo, bazen, konobu sa roštiljem, privatni parking. Idealna je za porodični odmor, romantični vikend ili povlačenje u tišinu prirode. U blizini se nalaze Stari grad Ostrožac, Nacionalni park Una te druge znamenitosti.",
+    feature_nature: "🌲 Priroda",
+    feature_fireplace: "🔥 Roštilj",
+    feature_sleeps: "🛏 Spava 4–6",
+    gallery_title: "Galerija",
+    see_all_photos: "Pogledaj sve fotografije",
+    activities_title: "Aktivnosti na otvorenom u našoj blizini",
+    activity_rafting: "Rafting",
+    activity_rafting_desc: "Uzbudljivi rafting na rijeci u blizini.",
+    activity_sightseeing: "Razgledavanje",
+    activity_sightseeing_desc: "Prekrasni vidikovci i historijska mjesta.",
+    activity_paragliding: "Paraglajding",
+    activity_paragliding_desc: "Letovi paraglajdingom s prekrasnim panoramskim pogledom.",
+    pricing_title: "Cjenovnik",
+    praznik: "(Iznimka praznici)",
+    contact_title: "Kontakt i lokacija",
+    footer_text: "© 2026 Villa Rustic"
+  },
+  de: {
+    page_title: "Villa Rustic",
+    site_title: "Villa Rustic",
+    nav_about: "Über uns",
+    nav_gallery: "Galerie",
+    nav_activities: "Aktivitäten",
+    nav_pricing: "Preise",
+    nav_contact: "Kontakt",
+    hero_title: "Willkommen in unserem Ferienhaus",
+    hero_subtitle: "Natur, Ruhe und Abenteuer",
+    about_title: "Über das Ferienhaus",
+    about_text: "Willkommen in Ihrer Oase der Ruhe – einem wunderschönen Ferienhaus im Herzen des Dorfes, ideal, um dem Großstadttrubel und dem Alltagsstress zu entfliehen. Dieses traditionelle, aber modern ausgestattete Haus bietet die perfekte Kombination aus Komfort und Natur. Es liegt malerisch und ruhig inmitten von Grün, einem Obstgarten und sauberer Luft. Genießen Sie Ihren Morgenkaffee mit Vogelgezwitscher, entspannen Sie auf der großzügigen Terrasse mit Blick auf den Pool oder verbringen Sie Ihre Abende mit Grillen unter dem Sternenhimmel. Das Haus bietet: ein geräumiges Wohnzimmer, eine voll ausgestattete Küche, zwei Schlafzimmer, ein modernes Badezimmer, einen Swimmingpool, eine Taverne mit Grillmöglichkeit und einen privaten Parkplatz. Es ist ideal für einen Familienurlaub, ein romantisches Wochenende oder eine Auszeit in der Stille der Natur. In der Nähe befinden sich die Altstadt von Ostrožac, der Nationalpark Una und weitere Sehenswürdigkeiten.",
+    feature_nature: "🌲 Natur",
+    feature_fireplace: "🔥 Grill",
+    feature_sleeps: "🛏 4–6 Schlafplätze",
+    gallery_title: "Galerie",
+    see_all_photos: "Alle Fotos ansehen",
+    activities_title: "Outdoor-Aktivitäten in unseres nähe",
+    activity_rafting: "Rafting",
+    activity_rafting_desc: "Spannende Fluss-Rafting-Erlebnisse in der Nähe.",
+    activity_sightseeing: "Sightseeing",
+    activity_sightseeing_desc: "Schöne Aussichtspunkte und historische Orte.",
+    activity_paragliding: "Paragliding",
+    activity_paragliding_desc: "Gleitschirmflüge mit atemberaubenden Panoramablicken.",
+    pricing_title: "Preise",
+    praznik:"(Ausgenommen Feiertage)",
+    contact_title: "Kontakt & Standort",
+    footer_text: "© 2026 Villa Rustic"
+  }
+};
+
+function setLanguage(lang) {
+  document.querySelectorAll("[data-key]").forEach(el => {
+    const key = el.getAttribute("data-key");
+    if(translations[lang][key]) el.textContent = translations[lang][key];
+  });
+  document.title = translations[lang].page_title;
+  localStorage.setItem("lang", lang);
+}
+
+// Load saved language
+const savedLang = localStorage.getItem("lang") || "en";
+setLanguage(savedLang);
+</script>
+
+</body>
+</html>

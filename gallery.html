@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery – Villa Rustic</title>
+
+<style>
+
+html {
+  overflow-x: hidden;
+}
+
+
+body {
+
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: white;
+}
+
+/* HEADER */
+header {
+  padding: 15px;
+  text-align: center;
+  background: #2f4f4f;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* GALLERY GRID */
+.gallery {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 15px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 12px;
+}
+
+/* FORCE 2 IMAGES PER ROW ON PHONES */
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery img {
+    height: 150px;
+  }
+}
+
+
+/* IMAGES */
+.gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: transform 0.2s;
+}
+
+
+.gallery img:hover {
+  transform: scale(1.03);
+}
+
+/* FULLSCREEN OVERLAY */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.overlay img {
+  max-width: 95%;
+  max-height: 95%;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 35px;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="Villa-Rustic.html">← Back to site</a>
+</header>
+
+<section class="gallery">
+  <img src="slike/1.jpg" onclick="openImage(this)">
+  <img src="slike/2.jpg" onclick="openImage(this)">
+  <img src="slike/3.jpg" onclick="openImage(this)">
+  <img src="slike/4.jpg" onclick="openImage(this)">
+  <img src="slike/5.jpg" onclick="openImage(this)">
+  <img src="slike/6.jpg" onclick="openImage(this)">
+  <img src="slike/8.jpg" onclick="openImage(this)">
+  <img src="slike/9.jpg" onclick="openImage(this)">
+  <img src="slike/10.jpg" onclick="openImage(this)">
+  <img src="slike/12.jpg" onclick="openImage(this)">
+  <img src="slike/13.jpg" onclick="openImage(this)">
+  <img src="slike/15.jpg" onclick="openImage(this)">
+  <img src="slike/16.jpg" onclick="openImage(this)">
+  <img src="slike/17.jpeg" onclick="openImage(this)">
+  <img src="slike/18.jpeg" onclick="openImage(this)">
+  <img src="slike/19.jpeg" onclick="openImage(this)"> 
+  <img src="slike/20.jpeg" onclick="openImage(this)"> 
+  <img src="slike/21.jpeg" onclick="openImage(this)">
+  <img src="slike/22.jpeg" onclick="openImage(this)"> 
+  <img src="slike/23.jpeg" onclick="openImage(this)">
+  <img src="slike/24.jpeg" onclick="openImage(this)"> 
+  <img src="slike/25.jpeg" onclick="openImage(this)">
+  <img src="slike/26.jpeg" onclick="openImage(this)">
+  <img src="slike/27.jpeg" onclick="openImage(this)"> 
+  <img src="slike/28.jpeg" onclick="openImage(this)"> 
+  <img src="slike/29.jpeg" onclick="openImage(this)"> 
+  <img src="slike/30.jpeg" onclick="openImage(this)"> 
+  <img src="slike/prvi.jpg" onclick="openImage(this)"> 
+  <img src="slike/drugi.jpg" onclick="openImage(this)"> 
+  <img src="slike/trci.jpg" onclick="openImage(this)"> 
+  <img src="slike/cetvrti.jpg" onclick="openImage(this)"> 
+  <img src="slike/sesti.jpg" onclick="openImage(this)"> 
+  <img src="slike/sedmi.jpg" onclick="openImage(this)"> 
+  <img src="slike/osmi.jpg" onclick="openImage(this)"> 
+  <img src="slike/deveti.jpg" onclick="openImage(this)"> 
+  <img src="slike/deseti.jpg" onclick="openImage(this)"> 
+  <img src="slike/jedanesti.jpg" onclick="openImage(this)"> 
+  <img src="slike/dvanesti.jpg" onclick="openImage(this)"> 
+  <img src="slike/a1.jpg" onclick="openImage(this)"> 
+  <img src="slike/a2.jpg" onclick="openImage(this)"> 
+  <img src="slike/a3.jpg" onclick="openImage(this)"> 
+  <img src="slike/a4.jpg" onclick="openImage(this)"> 
+  <img src="slike/a5.jpg" onclick="openImage(this)"> 
+  <img src="slike/a6.jpg" onclick="openImage(this)"> 
+  <img src="slike/a7.jpg" onclick="openImage(this)"> 
+  <img src="slike/a8.jpg" onclick="openImage(this)"> 
+  <img src="slike/a9.jpg" onclick="openImage(this)"> 
+  <img src="slike/a10.jpg" onclick="openImage(this)"> 
+  <img src="slike/a11.jpg" onclick="openImage(this)"> 
+  <img src="slike/a12.jpg" onclick="openImage(this)"> 
+  <img src="slike/a13.jpg" onclick="openImage(this)"> 
+  <img src="slike/a14.jpg" onclick="openImage(this)">
+  <img src="slike/a15.jpg" onclick="openImage(this)">  
+  <img src="slike/a16.jpg" onclick="openImage(this)"> 
+ 
+  
+
+
+</section>
+
+<!-- FULLSCREEN VIEW -->
+<div class="overlay" id="overlay" onclick="closeImage()">
+  <span class="close">×</span>
+  <img id="overlayImg">
+</div>
+
+<script>
+function openImage(img) {
+  document.getElementById("overlay").style.display = "flex";
+  document.getElementById("overlayImg").src = img.src;
+}
+
+function closeImage() {
+  document.getElementById("overlay").style.display = "none";
+}
+</script>
+
+</body>
+</html>
